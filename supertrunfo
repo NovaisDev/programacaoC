@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+// Definindo uma estrutura chamada Carta
+struct Carta {
+    char estado[3];
+    char codigocarta[10];
+    char cidadenome[100];
+    int populacao;
+    float kmarea;
+    float pib;
+    int pturisticos;
+};
+
+int main() {
+    struct Carta cartas[2];  // Vetor de 2 cartas
+
+    for (int i = 0; i < 2; i++) {
+        printf("\n--- Cadastro da Carta %d ---\n", i + 1);
+        printf("Digite a sigla do estado: ");
+        scanf("%2s", cartas[i].estado);
+
+        printf("Digite o código da carta: ");
+        scanf("%9s", cartas[i].codigocarta);
+
+        printf("Digite o nome da cidade: ");
+        scanf(" %[^\n]", cartas[i].cidadenome);
+
+        printf("Digite a populacao: ");
+        scanf("%d", &cartas[i].populacao);
+
+        printf("Digite a area em km²: ");
+        scanf("%f", &cartas[i].kmarea);
+
+        printf("Digite o PIB: ");
+        scanf("%f", &cartas[i].pib);
+
+        printf("Digite a quantidade de pontos turisticos: ");
+        scanf("%d", &cartas[i].pturisticos);
+    }
+
+    // Exibindo os dados
+    printf("\n=== DADOS DAS CARTAS ===\n");
+    for (int i = 0; i < 2; i++) {
+        printf("\n--- Carta %d ---\n", i + 1);
+        printf("Estado: %s\n", cartas[i].estado);
+        printf("Código da carta: %s\n", cartas[i].codigocarta);
+        printf("Cidade: %s\n", cartas[i].cidadenome);
+        printf("População: %d\n", cartas[i].populacao);
+        printf("Área (km²): %.2f\n", cartas[i].kmarea);
+        printf("PIB: %.2f\n", cartas[i].pib);
+        printf("Pontos Turísticos: %d\n", cartas[i].pturisticos);
+    }
+
+    return 0;
+}
